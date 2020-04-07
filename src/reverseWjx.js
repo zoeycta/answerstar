@@ -151,7 +151,8 @@ function submit (sType, options) {
     const joinUrl = '/joinnew/processjq.ashx?' + xhrQuery
 
     if (options.overrideIP) {
-      xhrHeaders['X-Forwarded-For'] = xhrHeaders['X-Real-IP'] = options.overrideIP
+      f.setRequestHeader('X-Forwarded-For',options.overrideIP)
+      f.setRequestHeader('X-Real-IP',options.overrideIP)
     }
 
     havereturn = false
